@@ -19,7 +19,7 @@ const Cards = (props) => {
 	return (
 		<div className="cards">
 			{props.error && <p>{props.error}</p>}
-			{props.cards.map((card) => <Card key={card.id} card={card} />)}
+			{props.cards.filter((card) => card.imageUrl).map((card) => <Card key={card.id} card={card} />)}
 		</div>
 	);
 };
@@ -33,3 +33,7 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, { fetchCards })(Cards);
+
+// {props.cards.map((card) => (
+//     <Card key={card.id} card={card} />))
+// }
